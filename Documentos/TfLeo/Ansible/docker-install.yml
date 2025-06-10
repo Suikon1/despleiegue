@@ -1,0 +1,24 @@
+- name: Instalar Docker
+  hosts: api_rest_ventas
+  become: true
+  task: 
+    - name: Actualizar el sistema
+      ansible.builtin.apt:
+      update_cache: yes
+      upgrade: dist
+
+    - name: Instalar Dependencias
+      ansible.builtin.apt:
+        name:
+        - ca-certificates
+        - curl
+        - lsb-relase
+    - name: Hace el curl
+      ansible.builtin.shell: curl -fsSL https://get.docker.com | sh
+
+    - name: Agrega docker al grupo de usuarios
+      ansible.builtin.user:
+        name: ubuntu
+        groups: docker
+        append: yes
+          

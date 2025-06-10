@@ -1,0 +1,8 @@
+all:
+  hosts:
+    api_rest_ventas:
+      ansible_host: 54.90.124.10
+      ansible_user: ubuntu
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_shh_private_key_file: ./terraform-trackdevops.pem
+      ansible_ssh_commom_args: '-o StrictHostKeyCheking=no'

@@ -1,0 +1,10 @@
+services:
+    api_ventas: # Servicio de la API de ventas
+      build: # Construcción de la imagen
+        context: . # Contexto de construcción
+        dockerfile: Dockerfile # Dockerfile a utilizar
+      ports: # Puertos a exponer
+        - "80:8080"
+      command: ["java", "-jar", "/app/app.jar"] # Comando para ejecutar la aplicación
+      env_file:
+        - .env # Archivo de variables de entorno
